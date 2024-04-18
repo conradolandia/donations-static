@@ -56,5 +56,7 @@ export const Line = $el => {
   tl.seek(gsap.utils.random(10, 20));
 };
 
-gsap.utils.toArray('.g').forEach($el => Line($el));
-gsap.to('svg', { opacity: 1, duration: 1 });
+window.addEventListener("load", () => {
+  gsap.utils.toArray('.g').forEach($el => Line($el));
+  gsap.to('svg', { opacity: 1, duration: 1 });
+})

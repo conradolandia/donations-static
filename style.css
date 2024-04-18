@@ -1,28 +1,33 @@
 :root {
+  --dark: #062647;
+  --med: #26486b;
+
+  --light: #dfe1e2;
+  --highlight: #ac0000;
+  --action: #ee0000;
+
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 1.6;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background: radial-gradient(circle, rgb(45, 122, 158) 0%, #042e52 100%);
+  color: var(--dark);
+  background: radial-gradient(circle, var(--med) 0%, var(--dark) 100%);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  --dark-bg: #062647;
-  --light-bg: #062647;
 }
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--action);
   text-decoration: inherit;
 }
+
 a:hover {
-  color: #535bf2;
+  color: var(--action);
 }
 
 body {
@@ -38,6 +43,23 @@ h1 {
   line-height: 1.1;
 }
 
+p {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.bold {
+  font-weight: 900;
+}
+
+.underline {
+  text-decoration: underline wavy var(--highlight);
+  text-underline-offset: 0.3em;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
@@ -50,19 +72,24 @@ h1 {
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
+  background-color: var(--light);
+  transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  scale: 1;
 }
+
 .logo:hover {
-  filter: drop-shadow(0 0 2em var(--dark-bg));
+  scale: 1.1;
 }
 
 .card {
   padding: 2em;
-  background-color: #fff;
-  border-radius: .2em;
+  background-color: var(--light);
+  border-radius: 0.2em;
+  max-width: 720px;
 }
 
 .read-the-docs {
-  color: #888;
+  color: var(--dark);
 }
 
 button {
@@ -72,13 +99,13 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: var(--highlight);
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
 button:hover {
-  border-color: #646cff;
+  background-color: var(--action);
 }
 
 button:focus,
@@ -86,6 +113,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+#svg ,
 svg.threads {
   position: absolute;
   width: 100%;
@@ -94,15 +122,115 @@ svg.threads {
   z-index: -1;
 }
 
+.title {
+  font-size: 12rem;
+  font-weight: 900;
+  letter-spacing: -0.1em;
+  line-height: 0.54em;
+  text-align: left;
+  z-index: 2;
+}
+
+.heart {
+  background-color: var(--highlight);
+  position: relative;
+  transform: rotate(45deg);
+  display: inline-flex;
+  z-index: -1;
+}
+
+.heart > .heart {
+  transform: rotate(0deg);
+  background-color: var(--light);
+  z-index: 1;
+  scale: 0.4;
+  opacity: 0.5
+}
+
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: inherit;
+  border-radius: 50%;
+}
+
+.heart::before {
+  transform: translateY(-50%);
+}
+
+.heart::after {
+  transform: translateX(-50%);
+}
+
+.heart-beat {
+  height: 6rem;
+  width: 6rem;
+
+  animation: beat 1.4s infinite linear;
+}
+
+.heart-beat > .heart-beat {
+  animation: beat-inner 1.4s infinite linear;
+}
+
+.grid-center {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes beat {
+  0% {
+    transform: rotate(45deg) scale(1);
+  }
+  25% {
+    transform: rotate(45deg) scale(1);
+  }
+  30% {
+    transform: rotate(45deg) scale(1.4);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.2);
+  }
+  70% {
+    transform: rotate(45deg) scale(1.4);
+  }
+  100% {
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+@keyframes beat-inner {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(0deg) scale(1.2);
+  }
+  30% {
+    transform: rotate(0deg) scale(1.6);
+  }
+  50% {
+    transform: rotate(0deg) scale(1.4);
+  }
+  70% {
+    transform: rotate(0deg) scale(1.2);
+  }
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+}
+
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background: radial-gradient(circle, rgb(255, 255, 255) 0%, #bbcedf 100%);
+    color: var(--dark);
   }
-  a:hover {
-    color: #747bff;
+  .card {
+    background-color: var(--dark);
   }
   button {
-    background-color: #f9f9f9;
+    background-color: var(--light);
   }
 }
