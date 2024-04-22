@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 
-export const Line = $el => {
+const Line = $el => {
   const $paths = $el.querySelectorAll('.path');
   const tl = gsap.timeline();
   const duration = gsap.utils.random(40, 80);

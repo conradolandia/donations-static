@@ -1,28 +1,27 @@
-import './style.css'
-import logo from '/spyder-logo.svg'
-import { setupCounter } from './counter.js'
-import * as threads from './threads.js'
+import './style.css';
+import logo from '/spyder-logo.svg';
+import * as threads from './threads.js';
 
-const app = document.querySelector('#app')
-const svg = document.querySelector('.threads')
+const app = document.querySelector('#app');
+const svg = document.querySelector('.threads');
 
-const homeUrl = 'https://www.spyder-ide.org/'
+const homeUrl = 'https://www.spyder-ide.org/';
+let content =
+  '<p>Fugiat in non quis qui aute magna culpa sunt. Sunt in officia duis aliqua nostrud voluptate aliquip. Occaecat Lorem quis sunt irure adipisicing esse nostrud cillum. Ullamco et Lorem dolor ad ullamco velit ullamco veniam dolore Lorem. Exercitation dolore veniam nulla dolore irure.</p>';
 
 const appContent = `
-  <div class="card">
-    <a href="${homeUrl}" target="_blank">
-      <img src="${logo}" class="logo" alt="Vite logo" />
-    </a>
-    <div class="grid-center">
-      <h1 class="title">Show<br/>your <span class="heart heart-beat"><span class="heart heart-beat"></span></span>!</h1>
-    </div>
-    <p>Fugiat in non quis qui aute magna culpa sunt. Sunt in officia duis aliqua nostrud voluptate aliquip. Occaecat Lorem quis sunt irure adipisicing esse nostrud cillum. Ullamco et Lorem dolor ad ullamco velit ullamco veniam dolore Lorem. Exercitation dolore veniam nulla dolore irure.</p>
-    <button id="counter" type="button"></button>
-    <p class="center">
-      Click on the <span class="bold underline">Spyder logo</span> to learn more
-    </p>
-  </div>
-`
+        <a href="${homeUrl}" target="_blank" class="flex justify-center">
+          <img src="${logo}" class="logo" alt="Spyder IDE" />
+        </a>
+        <div class="grid-center">
+          <h1 class="title">Show<br/>your <span class="heart heart-beat"><span class="heart heart-beat"></span></span>!</h1>
+        </div>
+        <button class="button">Donate</button>
+        ${content}
+        <p class="center mt-8">
+          Click on the <span class="bold underline">Spyder logo</span> to learn more
+        </p>
+      `;
 
 const svgContent = `
       <defs />
@@ -135,9 +134,7 @@ const svgContent = `
           />
         </g>
       </g>
-`
+`;
 
 app.innerHTML = appContent;
 svg.innerHTML = svgContent;
-
-setupCounter(document.querySelector('#counter'))

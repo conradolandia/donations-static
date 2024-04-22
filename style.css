@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --dark: #062647;
   --med: #26486b;
@@ -32,9 +36,6 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
   min-height: 100vh;
 }
 
@@ -60,60 +61,38 @@ p {
   text-underline-offset: 0.3em;
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
 .logo {
-  height: 6em;
+  height: 8em;
   padding: 1.5em;
   will-change: filter;
   transition: filter 300ms;
-  background-color: var(--light);
   transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
   scale: 1;
 }
 
 .logo:hover {
-  scale: 1.1;
+  scale: 1.2;
 }
 
-.card {
-  padding: 2em;
-  background-color: var(--light);
-  border-radius: 0.2em;
-  max-width: 720px;
-}
-
-.read-the-docs {
-  color: var(--dark);
-}
-
-button {
+.button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
+  margin: 1em auto;
+  font-size: 1.4em;
   font-weight: 500;
   font-family: inherit;
   background-color: var(--highlight);
+  color: #fff;
   cursor: pointer;
   transition: border-color 0.25s;
 }
 
-button:hover {
+.button:hover {
   background-color: var(--action);
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-#svg ,
+#svg,
 svg.threads {
   position: absolute;
   width: 100%;
@@ -123,12 +102,16 @@ svg.threads {
 }
 
 .title {
-  font-size: 12rem;
+  font-size: 10vw;
   font-weight: 900;
   letter-spacing: -0.1em;
-  line-height: 0.54em;
+  line-height: 0.52;
+  margin: 1vw 0 1vw;
   text-align: left;
   z-index: 2;
+  user-select: none;
+  pointer-events: none;
+  white-space: nowrap;
 }
 
 .heart {
@@ -165,9 +148,8 @@ svg.threads {
 }
 
 .heart-beat {
-  height: 6rem;
-  width: 6rem;
-
+  height: 5vw;
+  width: 5vw;
   animation: beat 1.4s infinite linear;
 }
 
