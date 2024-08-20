@@ -1,5 +1,7 @@
 import './style.css';
 import logo from '/spyder-logo.svg';
+import header from '/header_donations.svg';
+import iconDonations from '/icon_donations.svg';
 import * as threads from './threads.js';
 
 const app = document.querySelector('#app');
@@ -13,12 +15,25 @@ const appContent = `
         <a href="${homeUrl}" target="_blank" class="flex justify-center">
           <img src="${logo}" class="logo" alt="Spyder IDE" />
         </a>
+
         <div class="grid-center">
-          <h1 class="title">Show<br/>your <span class="heart heart-beat"><span class="heart heart-beat"></span></span>!</h1>
+          <img src="${header}" class="header" alt="Help Keep Spyder Strong!" />
+          <div class="heart-container"><span class="heart heart-beat"><span class="heart heart-beat"></span></span></div>
         </div>
-        <button class="button">Donate</button>
-        ${content}
-        <p class="center mt-8">
+
+        <button class="button">
+          <div class="text">
+            Click here to
+            <span>Donate!</span>
+          </div>
+          <div class="icon-container">
+            <img src="${iconDonations}" class="icon" alt="Donate!" />
+          </div>
+        </button>
+
+        <div class="content">${content}</div>
+
+        <p class="center mt-2">
           Click on the <span class="bold underline">Spyder logo</span> to learn more
         </p>
       `;

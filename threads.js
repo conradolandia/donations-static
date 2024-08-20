@@ -2,9 +2,9 @@ import { gsap } from 'gsap';
 
 const Line = $el => {
   const $paths = $el.querySelectorAll('.path');
+  const y = gsap.utils.random(-250, 250);
   const tl = gsap.timeline();
   const duration = gsap.utils.random(40, 80);
-  const y = gsap.utils.random(-250, 250);
   const rotate = gsap.utils.random(-30, 30);
   const scaleXFrom = gsap.utils.random(2, 2.5);
   const scaleXTo = gsap.utils.random(1.5, 1.75);
@@ -12,6 +12,7 @@ const Line = $el => {
   const scaleYTo = gsap.utils.random(0.2, 0.3);
   const opacityFrom = gsap.utils.random(0.2, 0.4);
   const opacityTo = gsap.utils.random(0.4, 0.6);
+
   const ease = gsap.utils.random([
     'power2.inOut',
     'power3.inOut',
