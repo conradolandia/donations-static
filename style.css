@@ -7,7 +7,7 @@
   --med: #26486b;
 
   --light: #dfe1e2;
-  --highlight: #8a2e2e;
+  --highlight: #8c0000;
   --action: #ac0000;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -87,7 +87,6 @@ p {
   font-weight: 500;
   font-family: inherit;
   background-color: var(--highlight);
-  color: #fff6d5;
   cursor: pointer;
   transition: border-color 0.25s;
   text-align: left;
@@ -96,10 +95,15 @@ p {
   gap: 1.5rem;
   align-items: center;
   justify-items: space-between;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
 }
 
 .button:hover {
   background-color: var(--action);
+}
+
+.button .text {
+  color: #fff6d5;
 }
 
 .button span {
@@ -134,8 +138,8 @@ svg.threads {
 .heart-container {
   position: absolute;
   z-index: 2;
-  top: 10%;
-  right: 12%;
+  top: 28%;
+  right: 25%;
   display: grid;
   align-items: center;
   justify-content: center;
@@ -177,8 +181,8 @@ svg.threads {
 }
 
 .heart-beat {
-  height: 8vw;
-  width: 8vw;
+  height: 4vw;
+  width: 4vw;
   animation: beat 1.4s infinite linear;
 }
 

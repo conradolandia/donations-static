@@ -1,42 +1,7 @@
 import './style.css';
-import logo from '/spyder-logo.svg';
-import header from '/header_donations.svg';
-import iconDonations from '/icon_donations.svg';
 import * as threads from './threads.js';
 
-const app = document.querySelector('#app');
 const svg = document.querySelector('.threads');
-
-const homeUrl = 'https://www.spyder-ide.org/';
-let content =
-  '<p>Fugiat in non quis qui aute magna culpa sunt. Sunt in officia duis aliqua nostrud voluptate aliquip. Occaecat Lorem quis sunt irure adipisicing esse nostrud cillum. Ullamco et Lorem dolor ad ullamco velit ullamco veniam dolore Lorem. Exercitation dolore veniam nulla dolore irure.</p>';
-
-const appContent = `
-        <a href="${homeUrl}" target="_blank" class="flex justify-center">
-          <img src="${logo}" class="logo" alt="Spyder IDE" />
-        </a>
-
-        <div class="grid-center">
-          <img src="${header}" class="header" alt="Help Keep Spyder Strong!" />
-          <div class="heart-container"><span class="heart heart-beat"><span class="heart heart-beat"></span></span></div>
-        </div>
-
-        <button class="button">
-          <div class="text">
-            Click here to
-            <span>Donate!</span>
-          </div>
-          <div class="icon-container">
-            <img src="${iconDonations}" class="icon" alt="Donate!" />
-          </div>
-        </button>
-
-        <div class="content">${content}</div>
-
-        <p class="center mt-2">
-          Click on the <span class="bold underline">Spyder logo</span> to learn more
-        </p>
-      `;
 
 const svgContent = `
       <defs />
@@ -151,5 +116,4 @@ const svgContent = `
       </g>
 `;
 
-app.innerHTML = appContent;
 svg.innerHTML = svgContent;
