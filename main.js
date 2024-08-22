@@ -4,7 +4,7 @@ import * as threads from './threads.js';
 const svg = document.querySelector('.threads');
 
 const svgContent = `
-      <defs />
+    <defs />
       <linearGradient
         id="SVGID_1_"
         x1="2880"
@@ -116,4 +116,4 @@ const svgContent = `
       </g>
 `;
 
-svg.innerHTML = svgContent;
+if (threads && svg) svg.innerHTML = svgContent;

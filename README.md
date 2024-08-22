@@ -14,4 +14,3 @@ The project will be visible at `localhost`. Check the output for details.
 1. In the terminal, run `npm run install` (unless already done)
 2. Then, `npm run build`
 3. Files for publication will be in the `dist/` folder.
-
