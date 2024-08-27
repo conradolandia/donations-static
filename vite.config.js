@@ -1,5 +1,13 @@
 import { defineConfig } from 'vite'
 
 export default defineConfig({
-  base: '',
+  build: {
+    rollupOptions: {
+        output: {
+            dir: './dist',
+            entryFileNames: 'assets/appeal.js',
+            assetFileNames: 'assets/appeal.css',
+        }
+    }
+  }
 })
