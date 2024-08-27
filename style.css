@@ -136,15 +136,6 @@ svg.threads {
   display: block;
 }
 
-.heart > .heart {
-  transform: rotate(0deg);
-  background-color: var(--light);
-  z-index: 1;
-  scale: 0.4;
-  opacity: 0.5;
-  display: block;
-}
-
 .heart::before,
 .heart::after {
   content: '';
@@ -167,10 +158,6 @@ svg.threads {
   height: 4vw;
   width: 4vw;
   animation: beat 1.4s infinite linear;
-}
-
-.heart-beat > .heart-beat {
-  animation: beat-inner 1.4s infinite linear;
 }
 
 .grid-center {
@@ -211,35 +198,3 @@ svg.threads {
   }
 }
 
-@keyframes beat-inner {
-  0% {
-    transform: rotate(0deg) scale(1);
-  }
-  25% {
-    transform: rotate(0deg) scale(1.2);
-  }
-  30% {
-    transform: rotate(0deg) scale(1.6);
-  }
-  50% {
-    transform: rotate(0deg) scale(1.4);
-  }
-  70% {
-    transform: rotate(0deg) scale(1.2);
-  }
-  100% {
-    transform: rotate(0deg) scale(1);
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: var(--dark);
-  }
-  .card {
-    background-color: var(--dark);
-  }
-  button {
-    background-color: var(--light);
-  }
-}
