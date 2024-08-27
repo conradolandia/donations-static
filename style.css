@@ -22,8 +22,6 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  min-width: 512px;
 }
 
 a {
@@ -64,9 +62,8 @@ p {
 }
 
 .logo {
-  max-height: 8em;
-  width: auto;
-  padding: 1.5em;
+  width: 30vw;
+  padding: 3vw;
   will-change: filter;
   transition: filter 300ms;
   transition: all 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -78,12 +75,12 @@ p {
 }
 
 .button {
-  min-width: 250px;
+  width: 250px;
   border-radius: 8px;
   border: 1px solid transparent;
-  padding: 1.2em;
-  margin: 1em auto;
-  font-size: 1.4em;
+  padding: 15px;
+  margin: 20px auto;
+  font-size: 20px;
   font-weight: 500;
   font-family: inherit;
   background-color: var(--highlight);
@@ -92,7 +89,7 @@ p {
   text-align: left;
   line-height: 0.9;
   display: flex;
-  gap: 1.5rem;
+  gap: 15px;
   align-items: center;
   justify-items: space-between;
   box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.25);
@@ -109,30 +106,16 @@ p {
 .button span {
   display: block;
   font-weight: 900;
-  font-size: 3rem;
+  font-size: 35px;
   color: #fff;
 }
 
-#svg,
 svg.threads {
   position: absolute;
   width: 100%;
   height: 100%;
   opacity: 0;
   z-index: -1;
-}
-
-.title {
-  font-size: 10vw;
-  font-weight: 900;
-  letter-spacing: -0.1em;
-  line-height: 0.52;
-  margin: 1vw 0 1vw;
-  text-align: left;
-  z-index: 2;
-  user-select: none;
-  pointer-events: none;
-  white-space: nowrap;
 }
 
 .heart-container {
@@ -198,17 +181,13 @@ svg.threads {
   z-index: 2;
 }
 
+.content {
+  padding-top: 20px;
+}
+
 .content p {
   text-align: center;
-  line-height: 1.8;
-}
-
-.content p:first-child {
-  margin-top: 2em;
-}
-
-.content p:last-child {
-  margin-bottom: 2em;
+  margin-bottom: 20px;
 }
 
 @keyframes beat {
