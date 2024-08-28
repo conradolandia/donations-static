@@ -3,16 +3,17 @@
 @tailwind utilities;
 
 :root {
-  --dark: #062647;
+  --dark: #1b1f24;
   --med: #26486b;
 
-  --light: #dfe1e2;
+  --light: #fafafa;
   --highlight: #8c0000;
   --action: #ac0000;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.6;
   font-weight: 400;
+  background-color: var(--light);
   color: var(--dark);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -60,10 +61,6 @@ p {
 .logo {
   width: 250px;
   padding: 0 30px 30px 30px;
-}
-
-.logo:hover {
-  scale: 1.2;
 }
 
 .button {
