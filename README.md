@@ -1,6 +1,6 @@
 # Donations Static Component
 
-This is [Vite](https://vite.dev) application.
+This is a [Vite](https://vite.dev) application.
 
 ## To preview
 
