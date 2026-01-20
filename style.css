@@ -248,6 +248,11 @@ p {
   animation: slideUp 0.4s ease-out forwards;
 }
 
+.changelog-wrapper.no-animation.visible {
+  animation: none;
+  transform: translateY(0);
+}
+
 .changelog-wrapper.hiding {
   animation: slideDown 0.4s ease-out forwards;
 }

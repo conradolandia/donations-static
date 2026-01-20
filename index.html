@@ -68,7 +68,12 @@
       const CHANGELOG_URL = wrapper.dataset.changelogUrl;
       let changelogLoaded = false;
 
-      async function loadChangelog() {
+      async function loadChangelog(skipAnimation = false) {
+        if (skipAnimation) {
+          wrapper.classList.add("no-animation");
+        } else {
+          wrapper.classList.remove("no-animation");
+        }
         wrapper.classList.add("visible");
         if (changelogLoaded) return;
         try {
@@ -83,7 +88,7 @@
       }
 
       function closeChangelog() {
-        wrapper.classList.remove("visible");
+        wrapper.classList.remove("visible", "no-animation");
         wrapper.classList.add("hiding");
         wrapper.addEventListener(
           "animationend",
@@ -100,6 +105,25 @@
       document
         .getElementById("back-to-donate")
         .addEventListener("click", closeChangelog);
+
+      // Check URL hash on load to show appropriate view
+      function checkHash(skipAnimation = false) {
+        if (window.location.hash === "#changelog") {
+          loadChangelog(skipAnimation);
+        }
+      }
+
+      // Handle direct navigation, reload, and hash changes
+      // Skip animation on initial page load (direct URL navigation)
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", () => checkHash(true));
+      } else {
+        checkHash(true);
+      }
+      // Keep animation for user-initiated hash changes (clicking links)
+      window.addEventListener("hashchange", () => checkHash(false));
+      // Fallback for edge cases where hash isn't ready immediately
+      setTimeout(() => checkHash(true), 0);
     </script>
   </body>
 </html>
