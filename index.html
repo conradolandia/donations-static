@@ -95,26 +95,42 @@
       let changelogLoaded = false;
       let showChangelog = __SHOW_CHANGELOG__;
 
-      // load the changelog
-      async function loadChangelog() { 
+      // load the changelog if it should be shown
+      if (showChangelog) {
+        document.addEventListener("DOMContentLoaded", () => {
+          loadChangelog(false);
+        });
+      }
+
+      // load the changelog and animate the panel if desired
+      async function loadChangelog(animate = true) { 
         if (changelogLoaded) return;
         container.innerHTML = __CHANGELOG_HTML__;
         wrapper.classList.add("visible");
+
+        if (animate) {
+          wrapper.classList.remove("animateDown");
+          wrapper.classList.add("animateUp");
+        }
         changelogLoaded = true;
       }
 
-      // close the changelog and load the in app appeal
-      function closeChangelog() { 
+      // close the changelog and show the in-app-appeal behind it
+      function closeChangelog(animate = true) { 
+        if (animate) {
+          wrapper.classList.remove("animateUp");
+          wrapper.classList.add("animateDown");
+        }
         wrapper.classList.remove("visible");
         changelogLoaded = false;
       }
 
       document
         .getElementById("view-changelog")
-        .addEventListener("click", loadChangelog);
+        .addEventListener("click", () => loadChangelog(true));
       document
         .getElementById("back-to-donate")
-        .addEventListener("click", closeChangelog);
+        .addEventListener("click", () => closeChangelog(true));
     </script>
   </body>
 </html>
