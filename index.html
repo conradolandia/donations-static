@@ -1,32 +1,43 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-          content="Support Spyder! Donate today to keep this independent open source Python IDE thriving. Your contribution directly helps fund further development through NumFOCUS." />
-    <meta name="keywords"
-          content="Spyder, Python IDE, open source, donate, NumFOCUS, programming, development" />
+    <meta
+      name="description"
+      content="Support Spyder! Donate today to keep this independent open source Python IDE thriving. Your contribution directly helps fund further development through NumFOCUS."
+    />
+    <meta
+      name="keywords"
+      content="Spyder, Python IDE, open source, donate, NumFOCUS, programming, development"
+    />
     <title>Donate today!</title>
     <link rel="icon" href="favicon.svg" />
     <link rel="stylesheet" href="style.css" />
-    <script src="marked.min.js"></script>
-    <script src="purify.min.js"></script>
   </head>
   <body class="grid items-center justify-center overflow-hidden">
-    <div class="info p-10 grid items-center justify-center max-w-screen-sm overflow-hidden">
+    <div
+      class="info p-10 grid items-center justify-center max-w-screen-sm overflow-hidden"
+    >
       <div class="grid-center -mx-5">
-        <img src="./header_donations.svg"
-             class="w-full"
-             width="100%"
-             height="100%"
-             alt="Help Keep Spyder Strong!" />
+        <img
+          src="./header_donations.svg"
+          class="w-full"
+          width="100%"
+          height="100%"
+          alt="Help Keep Spyder Strong!"
+        />
         <div class="heart-container">
           <span class="heart heart-beat"></span>
         </div>
       </div>
       <a href="https://www.spyder-ide.org/donate/" class="button" id="donate">
-        <img src="./icon_donations.svg" alt="Donate!" width="100%" height="100%" />
+        <img
+          src="./icon_donations.svg"
+          alt="Donate!"
+          width="100%"
+          height="100%"
+        />
         <span class="sr-only">Click here to donate</span>
       </a>
       <!-- content -->
@@ -34,30 +45,46 @@
         <p>
           Spyder is a fully independent project, unaffiliated with Anaconda or
           other companies. As it's developed by and for
-          <em><strong>you</strong></em>, our beloved community, we need
+          <em><strong>you</strong></em
+          >, our beloved community, we need
           <em><strong>your</strong></em> support to help keep it moving forward!
           Your donation goes directly to funding Spyder development through
           <a href="https://numfocus.org/">NumFOCUS</a>, a recognized charitable
           organization.
         </p>
       </div>
-      <a href="#changelog"
-         class="button small text-center text-white"
-         id="view-changelog">View Changelog</a>
+      <a
+        href="#"
+        class="button small text-center text-white"
+        id="view-changelog"
+        >View Changelog</a
+      >
     </div>
-    <div class="changelog-wrapper"
-         id="changelog-wrapper"
-         data-changelog-url="./changelog.md">
-      <div class="flex flex-col items-center justify-center overflow-hidden w-full h-full">
-        <div class="changelog-content flex-grow overflow-hidden overflow-y-auto p-20"
-             id="changelog-content">Loading changelog...</div>
-        <a href="#"
-           id="back-to-donate"
-           class="button small text-center text-white mt-10 mb-10">
-          <img src="./icon_donations_sm.svg"
-               alt="Donate!"
-               width="100%"
-               height="100%" />
+    <div
+      class="changelog-wrapper"
+      id="changelog-wrapper"
+      data-changelog-url="./changelog.md"
+    >
+      <div
+        class="flex flex-col items-center justify-center overflow-hidden w-full h-full"
+      >
+        <div
+          class="changelog-content flex-grow overflow-hidden overflow-y-auto p-20"
+          id="changelog-content"
+        >
+          Loading changelog...
+        </div>
+        <a
+          href="#"
+          id="back-to-donate"
+          class="button small text-center text-white mt-10 mb-10"
+        >
+          <img
+            src="./icon_donations_sm.svg"
+            alt="Donate!"
+            width="100%"
+            height="100%"
+          />
           <span class="sr-only">Back to Donate</span>
         </a>
       </div>
@@ -65,38 +92,21 @@
     <script>
       const wrapper = document.getElementById("changelog-wrapper");
       const container = document.getElementById("changelog-content");
-      const CHANGELOG_URL = wrapper.dataset.changelogUrl;
       let changelogLoaded = false;
+      let showChangelog = __SHOW_CHANGELOG__;
 
-      async function loadChangelog(skipAnimation = false) {
-        if (skipAnimation) {
-          wrapper.classList.add("no-animation");
-        } else {
-          wrapper.classList.remove("no-animation");
-        }
-        wrapper.classList.add("visible");
+      // load the changelog
+      async function loadChangelog() { 
         if (changelogLoaded) return;
-        try {
-          const response = await fetch(CHANGELOG_URL);
-          if (!response.ok) throw new Error("Failed to fetch");
-          const markdown = await response.text();
-          container.innerHTML = DOMPurify.sanitize(marked.parse(markdown));
-          changelogLoaded = true;
-        } catch (error) {
-          container.innerHTML = "<p>Failed to load changelog.</p>";
-        }
+        container.innerHTML = __CHANGELOG_HTML__;
+        wrapper.classList.add("visible");
+        changelogLoaded = true;
       }
 
-      function closeChangelog() {
-        wrapper.classList.remove("visible", "no-animation");
-        wrapper.classList.add("hiding");
-        wrapper.addEventListener(
-          "animationend",
-          () => {
-            wrapper.classList.remove("hiding");
-          },
-          { once: true }
-        );
+      // close the changelog and load the in app appeal
+      function closeChangelog() { 
+        wrapper.classList.remove("visible");
+        changelogLoaded = false;
       }
 
       document
@@ -105,25 +115,6 @@
       document
         .getElementById("back-to-donate")
         .addEventListener("click", closeChangelog);
-
-      // Check URL hash on load to show appropriate view
-      function checkHash(skipAnimation = false) {
-        if (window.location.hash === "#changelog") {
-          loadChangelog(skipAnimation);
-        }
-      }
-
-      // Handle direct navigation, reload, and hash changes
-      // Skip animation on initial page load (direct URL navigation)
-      if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", () => checkHash(true));
-      } else {
-        checkHash(true);
-      }
-      // Keep animation for user-initiated hash changes (clicking links)
-      window.addEventListener("hashchange", () => checkHash(false));
-      // Fallback for edge cases where hash isn't ready immediately
-      setTimeout(() => checkHash(true), 0);
     </script>
   </body>
 </html>
