@@ -19,8 +19,8 @@ export default defineConfig({
     rollupOptions: {
         output: {
             dir: './dist',
-            entryFileNames: 'assets/appeal.js',
-            assetFileNames: 'assets/appeal.css',
+            entryFileNames: 'appeal.js',
+            assetFileNames: 'appeal.css',
         }
     }
   }
