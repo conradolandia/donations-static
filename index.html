@@ -15,7 +15,7 @@
     <link rel="icon" href="favicon.svg" />
     <link rel="stylesheet" href="style.css" />
   </head>
-  <body class="grid items-center justify-center overflow-hidden">
+  <body class="grid items-center justify-center overflow-hidden hide-until-ready">
     <div
       class="info p-10 grid items-center justify-center max-w-screen-sm overflow-hidden"
       id="info"
@@ -70,7 +70,7 @@
         class="flex flex-col items-center justify-center overflow-hidden w-full h-full"
       >
         <div
-          class="changelog-content flex-grow overflow-hidden overflow-y-auto p-20"
+          class="changelog-content prose flex-grow overflow-hidden overflow-y-auto p-20"
           id="changelog-content"
         >
           Loading changelog...
@@ -97,11 +97,14 @@
       let changelogLoaded = false;
       let showChangelog = __SHOW_CHANGELOG__;
 
-      // load the changelog if it should be shown
+      // Set initial view before first paint to avoid appeal→changelog flicker
       if (showChangelog) {
         info.classList.add("invisible");
-        loadChangelog(false);
+        content.innerHTML = __CHANGELOG_HTML__;
+        changelog.classList.add("visible");
+        changelogLoaded = true;
       }
+      document.body.classList.remove("hide-until-ready");
 
       // load the changelog and animate the panel if desired
       async function loadChangelog(animate = true) { 
