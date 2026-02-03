@@ -16,6 +16,7 @@ export default defineConfig({
     }
   ],
   build: {
+    cssMinify: false,
     rollupOptions: {
         output: {
             dir: './dist',

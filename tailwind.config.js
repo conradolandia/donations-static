@@ -2,7 +2,15 @@
 export default {
   content: ["./*.{html,js}"],
   theme: {
-    extend: {},
+    extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: '960px',
+          },
+        },
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/typography'),
