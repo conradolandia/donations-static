@@ -17,12 +17,12 @@ export default defineConfig({
   ],
   build: {
     cssMinify: false,
-    rollupOptions: {
-        output: {
-            dir: './dist',
-            entryFileNames: 'appeal.js',
-            assetFileNames: 'appeal.css',
-        }
-    }
-  }
+    rolldownOptions: {
+      output: {
+        dir: './dist',
+        entryFileNames: 'appeal.js',
+        assetFileNames: 'appeal.css',
+      },
+    },
+  },
 })
