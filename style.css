@@ -86,6 +86,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 .button.small {
@@ -275,25 +276,25 @@ p {
 /* --- Scrollbar -- */
 
 ::-webkit-scrollbar {
-  background-color: #19232D;
+  background-color: var(--light);
   width: 14px;
   height: 14px;
   margin: 16px 2px 16px 2px;
-  border: 1px solid #37414F;
+  border: 1px solid var(--border-light);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #788D9C;
-  border: 1px solid #37414F;
+  background-color: var(--border-light);
+  border: 1px solid #cccccc;
   min-height: 8px;
   border-radius: 10px;
   width: 1px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #346792;
-  border: 1px solid #346792;
+  background-color: #cccccc;
+  border: 1px solid var(--border-light);
   border-radius: 10px;
   min-height: 8px;
   width: 1px;
