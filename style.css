@@ -89,6 +89,13 @@ p {
   text-align: center;
 }
 
+.button.medium {
+  min-width: 180px;
+  min-height: 60px;
+  padding: 15px;
+  color: var(--light);
+}
+
 .button.small {
   min-width: auto;
   min-height: auto;
@@ -104,9 +111,7 @@ p {
   object-fit: contain;
   object-position: center;
   width: 100%;
-  max-width: 100%;
   height: auto;
-  max-height: auto;
   margin: 0 auto;
 }
 
