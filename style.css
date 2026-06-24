@@ -101,8 +101,13 @@ p {
 }
 
 .button img {
+  object-fit: contain;
+  object-position: center;
   width: 100%;
+  max-width: 100%;
   height: auto;
+  max-height: auto;
+  margin: 0 auto;
 }
 
 .heart-container {
