@@ -3,7 +3,6 @@
   --background: #fafafa;
   --surface: #ac0000;
   --foreground: #1b1f24;
-  --foreground-button: var(--background);
   --highlight: #6A0000;
   --highlight-light: #D9B58C;
   --action: #900000;
@@ -17,7 +16,6 @@
   --background: #19232d;
   --surface: #0076C4;
   --foreground: #dfe1e2;
-  --foreground-button: var(--foreground);
   --highlight: #259ae9;
   --highlight-light: #b9dbf9;
   --action: #0084CB;
@@ -168,7 +166,7 @@ p {
   min-width: 240px;
   min-height: 100px;
   border-radius: 8px;
-  padding: 15px;
+  padding: 20px 28px;
   background-color: var(--highlight);
   color: #ffffff;
   cursor: pointer;
@@ -183,7 +181,6 @@ p {
   min-width: 180px;
   min-height: 60px;
   height: 4rem;
-  padding: 15px;
 }
 
 .button.small {
