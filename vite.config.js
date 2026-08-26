@@ -21,7 +21,11 @@ export default defineConfig({
       output: {
         dir: './dist',
         entryFileNames: 'appeal.js',
-        assetFileNames: 'appeal.css',
+        assetFileNames: (assetInfo) => {
+          const name = assetInfo.names?.[0] ?? assetInfo.name ?? ''
+          if (name.endsWith('.css')) return 'style.css'
+          return '[name][extname]'
+        },
       },
     },
   },

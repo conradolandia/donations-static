@@ -1,29 +1,3 @@
-/* Light theme */
-[data-theme="light"] {
-  --background: #fafafa;
-  --surface: #ac0000;
-  --foreground: #1b1f24;
-  --highlight: #6A0000;
-  --highlight-light: #D9B58C;
-  --action: #900000;
-  --border-light: #dddddd;
-  --border-lighter: #eeeeee;
-  --code-bg: #f0f0f0;
-}
-
-/* Dark theme */
-[data-theme="dark"] {
-  --background: #19232d;
-  --surface: #0076C4;
-  --foreground: #dfe1e2;
-  --highlight: #259ae9;
-  --highlight-light: #b9dbf9;
-  --action: #0084CB;
-  --border-light: #54687a;
-  --border-lighter: #6b7f91;
-  --code-bg: #2a3441;
-}
-
 body {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.6;
