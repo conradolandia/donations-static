@@ -28,25 +28,25 @@ body {
   fill: var(--foreground);
 }
 
-.fill-surface {
-  fill: var(--surface);
+.fill-heart {
+  fill: var(--heart);
 }
 
 .fill-highlight {
   fill: var(--highlight);
 }
 
-.fill-highlight-light {
-  fill: var(--highlight-light);
+.fill-hand {
+  fill: var(--hand);
 }
 
-.fill-action {
-  fill: var(--action);
+.fill-link {
+  fill: var(--link);
 }
 
 a {
   font-weight: 500;
-  color: var(--action);
+  color: var(--link);
   text-decoration: inherit;
 }
 
@@ -113,38 +113,45 @@ p {
   align-items: center;
   justify-content: center;
   gap: 1.25rem;
+  width: 100%;
   max-width: 640px;
   overflow: hidden;
 }
 
 .logo-hero {
-  width: 600px;
-  max-width: 100%;
+  width: 100%;
+  min-width: 500px;
+  max-width: 600px;
   height: auto;
   display: block;
 }
 
 .logo-donate {
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
+  min-width: 150px;
   height: auto;
   display: block;
 }
 
 .logo-nav {
-  width: 200px;
+  width: 100%;
+  max-width: 200px;
+  min-width: 100px;
   height: auto;
   display: block;
 }
 
 .button {
-  min-width: 240px;
+  max-width: 300px;
+  min-width: 150px;
   min-height: 100px;
   border-radius: 8px;
   padding: 20px 28px;
   background-color: var(--highlight);
   color: #ffffff;
   cursor: pointer;
-  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0 1rem -0.2rem rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -152,7 +159,8 @@ p {
 }
 
 .button.medium {
-  min-width: 180px;
+  max-width: 240px;
+  min-width: 120px;
   min-height: 60px;
   height: 4rem;
 }
@@ -164,8 +172,11 @@ p {
 }
 
 .button:hover {
-  background-color: var(--surface);
+  background-color: var(--heart);
+  box-shadow: 0 0 1rem -0.3rem rgba(0, 0, 0, 0.5);
+  scale: 1.05;
   color: #ffffff;
+  transition: all 0.2s ease-in-out;
 }
 
 .button img {
@@ -181,12 +192,10 @@ p {
   align-items: center;
   justify-content: center;
   gap: 2.5rem;
-  margin-top: 1.25rem;
 }
 
 .actions.footer {
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  margin: 2.5rem;
 }
 
 .heart-container {
@@ -201,7 +210,7 @@ p {
 }
 
 .heart {
-  background-color: var(--surface);
+  background-color: var(--heart);
   position: relative;
   transform: rotate(45deg);
   display: block;
@@ -226,8 +235,8 @@ p {
 }
 
 .heart-beat {
-  height: 6vw;
-  width: 6vw;
+  height: 5rem;
+  width: 5rem;
   animation: beat 1.4s infinite linear;
 }
 
@@ -298,14 +307,14 @@ p {
   font-size: 1.8em;
   margin: 0 0 1em;
   padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-primary);
 }
 
 .changelog-content h2 {
   font-size: 1.4em;
   margin: 1.5em 0 0.5em;
   padding-bottom: 0.2em;
-  border-bottom: 1px solid var(--border-lighter);
+  border-bottom: 1px solid var(--border-secondary);
 }
 
 .changelog-content h3 {
@@ -359,7 +368,7 @@ p {
 
 .changelog-content hr {
   border: none;
-  border-top: 1px solid var(--border-light);
+  border-top: 1px solid var(--border-primary);
   margin: 1.5em 0;
 }
 
@@ -406,21 +415,21 @@ p {
   width: 14px;
   height: 14px;
   margin: 16px 2px 16px 2px;
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border-primary);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--border-light);
-  border: 1px solid var(--border-light);
+  background-color: var(--border-primary);
+  border: 1px solid var(--border-primary);
   min-height: 8px;
   border-radius: 10px;
   width: 1px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #346792;
-  border: 1px solid #346792;
+  background-color: var(--highlight);
+  border: 1px solid var(--highlight);
   border-radius: 10px;
   min-height: 8px;
   width: 1px;

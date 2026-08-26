@@ -1,25 +1,25 @@
-/* Light theme */
+/* Light mode */
 [data-mode="light"] {
   --background: #fafafa;
-  --surface: #ac0000;
   --foreground: #1b1f24; 
+  --heart: #ac0000;
+  --link: #900000;
   --highlight: #6a0000;
-  --highlight-light: #d9b58c;
-  --action: #900000;
-  --border-light: #dddddd;
-  --border-lighter: #eeeeee;
+  --hand: #d9b58c;
+  --border-primary: #dddddd;
+  --border-secondary: #eeeeee;
   --code-bg: #f0f0f0;
 }
 
 /* Dark mode */
 [data-mode="dark"] {
   --background: #19232d;
-  --surface: #0076c4;
   --foreground: #dfe1e2;
+  --heart: #218AD0;
+  --link: #0084cb;
   --highlight: #259ae9;
-  --highlight-light: #b9dbf9;
-  --action: #0084cb;
-  --border-light: #54687a;
-  --border-lighter: #6b7f91;
+  --hand: #b9dbf9;
+  --border-primary: #54687a;
+  --border-secondary: #6b7f91;
   --code-bg: #2a3441;
 }
