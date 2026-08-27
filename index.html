@@ -87,26 +87,31 @@
     const info = document.getElementById("info");
     const changelog = document.getElementById("changelog");
     const content = document.getElementById("changelog-content");
+    const themeMode = "__THEME_MODE__";
     let changelogLoaded = false;
     let showChangelog = __SHOW_CHANGELOG__;
-    let themeMode = "__THEME_MODE__";
     
-    // Set initial theme mode
-    document.body.dataset.mode = themeMode;
-
+    // get the changelog html from the template
     function getChangelogHtml() {
       const source = document.getElementById("changelog-source");
       return source ? source.innerHTML : "";
     }
-    // initial view
+
+    // set the initial theme mode
+    document.body.dataset.mode = themeMode;
+
+    // show the changelog if it's loaded
     if (showChangelog) {
       info.classList.add("invisible");
       content.innerHTML = getChangelogHtml();
       changelog.classList.add("visible");
       changelogLoaded = true;
     }
+
+    // remove the hide-until-ready class
     document.body.classList.remove("hide-until-ready");
-    // later load
+
+    // load the changelog if it's not loaded
     async function loadChangelog(animate = true) {
       if (changelogLoaded) return;
       content.innerHTML = getChangelogHtml();
@@ -130,6 +135,7 @@
       changelogLoaded = false;
     }
 
+    // add event listeners to the buttons
     document
       .getElementById("view-changelog")
       .addEventListener("click", loadChangelog);
