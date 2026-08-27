@@ -82,6 +82,7 @@
       </div>
     </div>
   </div>
+  <template id="changelog-source">__CHANGELOG_HTML__</template>
   <script>
     const info = document.getElementById("info");
     const changelog = document.getElementById("changelog");
@@ -93,19 +94,22 @@
     // Set initial theme mode
     document.body.dataset.mode = themeMode;
 
-    // Set initial view before first paint to avoid appeal→changelog flicker
+    function getChangelogHtml() {
+      const source = document.getElementById("changelog-source");
+      return source ? source.innerHTML : "";
+    }
+    // initial view
     if (showChangelog) {
       info.classList.add("invisible");
-      content.innerHTML = __CHANGELOG_HTML__;
+      content.innerHTML = getChangelogHtml();
       changelog.classList.add("visible");
       changelogLoaded = true;
     }
     document.body.classList.remove("hide-until-ready");
-
-    // load the changelog and animate the panel if desired
+    // later load
     async function loadChangelog(animate = true) {
       if (changelogLoaded) return;
-      content.innerHTML = __CHANGELOG_HTML__;
+      content.innerHTML = getChangelogHtml();
       changelog.classList.add("visible");
 
       if (animate) {

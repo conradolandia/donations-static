@@ -10,7 +10,7 @@ try {
   html = html.replace(/__THEME_MODE__/g, '${theme_mode}');
   html = html.replace(/__CSS_VARIABLES__/g, '${css_appeal}');
   html = html.replace(/__SHOW_CHANGELOG__/g, '${show_changelog}');
-  html = html.replace(/__CHANGELOG_HTML__/g, '"${changelog_html}"');
+  html = html.replace(/__CHANGELOG_HTML__/g, '${changelog_html}');
   
   writeFileSync(distHtmlPath, html, 'utf8');
   console.log('✓ Post-build: Replaced placeholders with Python template syntax');
