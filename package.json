@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build --base=./ && node post-build.js",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "npm run build && rsync -av dist/ ../spyder/spyder/plugins/application/widgets/appeal_page/"
   },
   "devDependencies": {
     "vite": "^8.0.0"
