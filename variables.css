@@ -3,7 +3,8 @@
   --background: #fafafa;
   --foreground: #1b1f24; 
   --heart: #ac0000;
-  --link: #900000;
+  --link-color: #900000;
+  --hover-color: #6a0000;
   --highlight: #6a0000;
   --hand: #d9b58c;
   --border-primary: #dddddd;
@@ -16,7 +17,8 @@
   --background: #19232d;
   --foreground: #dfe1e2;
   --heart: #218AD0;
-  --link: #0084cb;
+  --link-color: #0084cb;
+  --hover-color: #0064a0;
   --highlight: #259ae9;
   --hand: #b9dbf9;
   --border-primary: #54687a;
